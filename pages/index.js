@@ -130,8 +130,8 @@ export default function Home() {
         {/* Toast de notificação */}
         {toast && (
           <div className={`fixed top-4 right-4 z-50 toast px-6 py-4 rounded-lg shadow-lg text-white ${toast.type === 'success' ? 'bg-success' :
-              toast.type === 'error' ? 'bg-error' :
-                'bg-blue-500'
+            toast.type === 'error' ? 'bg-error' :
+              'bg-blue-500'
             }`}>
             {toast.message}
           </div>
@@ -212,7 +212,7 @@ export default function Home() {
                   value={config.interval}
                   onChange={(e) => setConfig({ ...config, interval: parseInt(e.target.value) })}
                 >
-                  <option value="60">60 segundos (1 minuto)</option>
+                  <option value="30">30 segundos</option>
                   <option value="300">300 segundos (5 minutos)</option>
                   <option value="600">600 segundos (10 minutos)</option>
                   <option value="900">900 segundos (15 minutos)</option>
@@ -269,8 +269,8 @@ export default function Home() {
               <div className="flex items-center justify-between mb-2">
                 <span className="font-medium text-gray-700">Status da Configuração:</span>
                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${status?.configured
-                    ? 'bg-success text-white'
-                    : 'bg-error text-white'
+                  ? 'bg-success text-white'
+                  : 'bg-error text-white'
                   }`}>
                   {status?.configured ? '✅ Configurado' : '❌ Não Configurado'}
                 </span>

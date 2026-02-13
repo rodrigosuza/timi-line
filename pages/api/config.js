@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     const vercelProjectUrl = `https://vercel.com/dashboard`;
     const cronJobUrl = `https://console.cron-job.org/settings`;
-    
+
     return res.status(200).json({
       message: 'Configuration instructions',
       currentConfig: {
@@ -39,13 +39,13 @@ export default async function handler(req, res) {
       }
     });
   }
-  
+
   // POST - Validar configuração proposta
   if (req.method === 'POST') {
     const { targetUrl, apiKey, interval } = req.body;
-    
+
     const errors = [];
-    
+
     // Validar URL
     if (!targetUrl) {
       errors.push('targetUrl is required');
@@ -56,32 +56,32 @@ export default async function handler(req, res) {
           errors.push('targetUrl must use http:// or https:// protocol');
         }
         // Bloquear IPs locais/privados
-        if (url.hostname === 'localhost' || 
-            url.hostname === '127.0.0.1' ||
-            url.hostname.startsWith('192.168.') ||
-            url.hostname.startsWith('10.')) {
+        if (url.hostname === 'localhost' ||
+          url.hostname === '127.0.0.1' ||
+          url.hostname.startsWith('192.168.') ||
+          url.hostname.startsWith('10.')) {
           errors.push('targetUrl cannot be a local or private IP address');
         }
       } catch (e) {
         errors.push('targetUrl is not a valid URL');
       }
     }
-    
+
     // Validar API Key
     if (!apiKey) {
       errors.push('apiKey is required');
     } else if (apiKey.length < 10) {
       errors.push('apiKey must be at least 10 characters long');
     }
-    
+
     // Validar intervalo
     if (interval !== undefined) {
       const intervalNum = parseInt(interval);
-      if (isNaN(intervalNum) || intervalNum < 60) {
-        errors.push('interval must be a number >= 60 seconds');
+      if (isNaN(intervalNum) || intervalNum < 30) {
+        errors.push('interval must be a number >= 30 seconds');
       }
     }
-    
+
     if (errors.length > 0) {
       return res.status(400).json({
         success: false,
@@ -89,7 +89,7 @@ export default async function handler(req, res) {
         message: 'Validation failed'
       });
     }
-    
+
     return res.status(200).json({
       success: true,
       message: 'Configuration is valid',
@@ -104,7 +104,7 @@ export default async function handler(req, res) {
       vercelUrl: 'https://vercel.com/dashboard'
     });
   }
-  
+
   return res.status(405).json({
     error: 'Method Not Allowed',
     message: 'Only GET and POST methods are allowed'
