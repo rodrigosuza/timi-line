@@ -1,0 +1,31 @@
+(node:19588) [DEP_WEBPACK_MODULE_ISSUER] DeprecationWarning: Module.issuer: Use new ModuleGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Failed to compile.
+
+./styles/globals.css
+Global CSS cannot be imported from files other than your Custom <App>. Due to the Global nature of stylesheets, and to avoid conflicts, Please move all first-party global CSS imports to pages/_app.js. Or convert the import to Component-Level CSS (CSS Modules).
+Read more: https://nextjs.org/docs/messages/css-global
+Location: pages\index.js
+
+Import trace for requested module:
+./styles/globals.css
+
+./styles/globals.css
+Module build failed: Error: Final loader (./node_modules/next/dist/build/webpack/loaders/error-loader.js) didn't return a Buffer or String
+    at processResult (C:\Users\Design Pro\Desktop\Projetos\A Criacao\keep-alive-final\keep-alive-monitor\node_modules\next\dist\compiled\webpack\bundle5.js:28:400836)
+    at C:\Users\Design Pro\Desktop\Projetos\A Criacao\keep-alive-final\keep-alive-monitor\node_modules\next\dist\compiled\webpack\bundle5.js:28:402302
+    at C:\Users\Design Pro\Desktop\Projetos\A Criacao\keep-alive-final\keep-alive-monitor\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js:1:8727
+    at iterateNormalLoaders (C:\Users\Design Pro\Desktop\Projetos\A Criacao\keep-alive-final\keep-alive-monitor\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js:1:5565)
+    at iterateNormalLoaders (C:\Users\Design Pro\Desktop\Projetos\A Criacao\keep-alive-final\keep-alive-monitor\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js:1:5650)
+    at C:\Users\Design Pro\Desktop\Projetos\A Criacao\keep-alive-final\keep-alive-monitor\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js:1:5879
+    at runSyncOrAsync (C:\Users\Design Pro\Desktop\Projetos\A Criacao\keep-alive-final\keep-alive-monitor\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js:1:4185)
+    at iterateNormalLoaders (C:\Users\Design Pro\Desktop\Projetos\A Criacao\keep-alive-final\keep-alive-monitor\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js:1:5782)
+    at C:\Users\Design Pro\Desktop\Projetos\A Criacao\keep-alive-final\keep-alive-monitor\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js:1:5426
+    at C:\Users\Design Pro\Desktop\Projetos\A Criacao\keep-alive-final\keep-alive-monitor\node_modules\next\dist\compiled\webpack\bundle5.js:28:401777
+
+Import trace for requested module:
+./styles/globals.css
+
+
+> Build failed because of webpack errors
+[?25h
